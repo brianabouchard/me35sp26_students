@@ -3,7 +3,7 @@ import time
 
 GPIO.setmode(GPIO.BOARD)
 
-# Define the GPIO pins for the L298N motor driver
+# Define the GPIO pins 
 OUT1 = 12
 OUT2 = 11
 OUT3 = 13
@@ -32,7 +32,6 @@ try:
         current_step = 0
 
         for x in range(num_steps):
-            # ----------- REVERSED SEQUENCE ---------
             if current_step == 0:
                 GPIO.output(OUT1, GPIO.HIGH)
                 GPIO.output(OUT2, GPIO.LOW)
@@ -53,12 +52,10 @@ try:
                 GPIO.output(OUT2, GPIO.LOW)
                 GPIO.output(OUT3, GPIO.HIGH)
                 GPIO.output(OUT4, GPIO.LOW)
-            # ---------------------------------------
 
             time.sleep(step_delay)
-            print(f"step {current_step}")
 
-            # Move to next step (reversed)
+            # Move to next step 
             current_step = (current_step + 1) % 4
 
         GPIO.cleanup()
