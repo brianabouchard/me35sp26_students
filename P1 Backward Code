@@ -3,7 +3,7 @@ import time
 
 GPIO.setmode(GPIO.BOARD)
 
-# Define the GPIO pins for the L298N motor driver
+# Define the GPIO pins
 OUT1 = 12
 OUT2 = 11
 OUT3 = 13
@@ -39,14 +39,12 @@ try:
                 GPIO.output(OUT3,GPIO.HIGH)
                 GPIO.output(OUT4,GPIO.LOW)
                 time.sleep(step_delay)
-                #print("step 0")
             elif current_step == 1:
                 GPIO.output(OUT1,GPIO.LOW)
                 GPIO.output(OUT2,GPIO.HIGH)
                 GPIO.output(OUT3,GPIO.HIGH)
                 GPIO.output(OUT4,GPIO.LOW)
                 time.sleep(step_delay)
-                #print("step 1")
             elif current_step == 2:
                 GPIO.output(OUT1,GPIO.LOW)
                 GPIO.output(OUT2,GPIO.HIGH)
@@ -68,6 +66,3 @@ try:
 
 except KeyboardInterrupt:
     GPIO.cleanup()
-
-
-
