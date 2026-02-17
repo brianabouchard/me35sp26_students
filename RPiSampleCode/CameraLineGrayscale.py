@@ -19,7 +19,8 @@ try:
         
         # Display camera input
         image = picam2.capture_array("main")
-        cv2.imshow('img',image)
+        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        cv2.imshow('img', image_rgb)
     
         # Crop the image
         crop_img = image[60:120, 0:160]
