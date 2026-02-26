@@ -22,7 +22,7 @@ try:
         cv2.imshow('img', image_rgb)
         
         # Crop the image
-        crop_img = image[60:120, 0:160]
+        crop_img = image[210:270, 270:370]
 	
         # Apply Gaussian blur - comment out option 1 or option 2
         # Option 1: blur cropped image
@@ -34,7 +34,7 @@ try:
         # Convert to HSV color space
         hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)
 
-        # Calibrate: Show HSV values
+        # Show HSV values
         hsv_mean = np.mean(hsv, axis=(0, 1))  # Calculate the mean HSV
         print(f"Mean HSV values: {hsv_mean}")  # Print the mean HSV values
 
